@@ -4,15 +4,19 @@
 import express from "express";
 import cors from "cors";
 import session from "express-session";
-import db from "./config/Database";
-import UserRoute from "./routes/userRoute";
-
-import ProductRoute from "./routes/ProductRoute";
-
 import dotenv from "dotenv";
+//import db from "./config/Database.js";
+import UserRoute from "./routes/UserRoute.js";
+import ProductRoute from "./routes/ProductRoute.js";
 dotenv.config();
 
 const app = express();
+
+// (async()=>{
+//     await db.sync();
+// })();
+//const sessionStore = SequelizeStore(session.Store);
+
 
 app.use(session({
     secret: process.env.SESS_SECRET,
