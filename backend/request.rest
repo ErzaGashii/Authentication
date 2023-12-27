@@ -10,3 +10,6 @@ Content-Type: application/json
     "confPassword": "1234567",
     "role": "admin"
 }
+
+### get All User
+GET http://localhost:5000/users 
