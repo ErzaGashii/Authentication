@@ -13,3 +13,26 @@ Content-Type: application/json
 
 ### get All User
 GET http://localhost:5000/users 
+
+
+### 
+//Get Single User
+GET http://localhost:5000/users/uuid
+
+###
+//Update a User
+//Ne vend te uuid e merr id e user-it qe e ke krijuar
+PATCH http://localhost:5000/users/uuid
+Content-Type: application/json
+
+{
+    "name": "Erza",
+    "email": "egashi@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "admin"
+}
+
+###
+//Delete a user
+DELETE http://localhost:5000/users/uuid
