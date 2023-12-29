@@ -1,12 +1,13 @@
 //Sequelize is an Object-Relational Mapping (ORM) library for Node.js,
 // which provides an easy way to interact with relational databases.
 import { Sequelize } from "sequelize";
-import db from '../config/Database';
+import db from "../config/Database.js";
+
 
 //DataTypes është një objekt që përmban tipet e të dhënave të ndryshme
 // që mund të përdoren kur krijohen modelet (tabela) në Sequelize.
 const { DataTypes } = Sequelize;
-              //emri i tables - users
+              //emri i tables - users              
               const Users = db.define('users',{
                   uuid:{
                       type: DataTypes.STRING,

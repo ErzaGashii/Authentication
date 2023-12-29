@@ -1,42 +1,40 @@
 //Sequelize is an Object-Relational Mapping (ORM) library for Node.js,
 // which provides an easy way to interact with relational databases.
 import { Sequelize } from "sequelize";
-import db from '../config/Database';
-import User from "./UserModel";
+import db from "../config/Database.js";
+import Users from "./UserModel.js";
 
 //DataTypes është një objekt që përmban tipet e të dhënave të ndryshme
 // që mund të përdoren kur krijohen modelet (tabela) në Sequelize.
-const { DataTypes } = Sequelize;
+const {DataTypes} = Sequelize;
               //emri i tables - product
-const Products = db.define('product', {
+const Products = db.define('product',{
     uuid:{
-       type: DataTypes.STRING,
+        type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         validate:{
             notEmpty: true
         }
-    }, 
-
+    },
     name:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true,
-            len: [3,100]
+            len: [3, 100]
         }
-            },
-
-    price: {
+    },
+    price:{
         type: DataTypes.INTEGER,
-        allowNull:false,
+        allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    userId: {
+    userId:{
         type: DataTypes.INTEGER,
-        allowNull:false,
+        allowNull: false,
         validate:{
             notEmpty: true
         }
@@ -46,7 +44,9 @@ const Products = db.define('product', {
 });
 //Ketu ka nje foregin key
 //Eshte nje lidhshmeri nje me shume - ku nje user mund te shtoje shume produkte
-User.hasMany(Products)
-Products.belongsTo(User, {foreignKey:"userId"});
+
+Users.hasMany(Products);
+Products.belongsTo(Users, {foreignKey: 'userId'});
 
 export default Products;
+
